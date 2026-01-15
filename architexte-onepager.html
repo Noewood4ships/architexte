@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architexte - Noe Tessmann</title>
+</head>
+<body>
+
+<style>
+/* Schriftarten */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #2c2c2c;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-divider {
+  width: 50px;
+  height: 3px;
+  background: #a65e3f;
+  margin-bottom: 30px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 25px;
+}
+
+.hero-accent {
+  color: #a65e3f;
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: #3a3956;
+  color: #ffffff !important;
+  padding: 14px 32px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #2a2940;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #3a3956 !important;
+  padding: 14px 32px;
+  text-decoration: none;
+  border: 1px solid #3a3956;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #3a3956;
+  color: #ffffff !important;
+}
+
+.scroll-indicator {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+  letter-spacing: 2px;
+}
+
+/* Sections */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-divider {
+  width: 50px;
+  height: 3px;
+  background: #a65e3f;
+  margin: 0 auto 30px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.05rem;
+  margin-bottom: 50px;
+}
+
+/* Leistungen Grid */
+.leistungen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.leistung-box {
+  background: #fdfbf8;
+  border: 1px solid #e8e3db;
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.leistung-box:hover {
+  box-shadow: 0 8px 24px rgba(166, 94, 63, 0.12);
+  transform: translateY(-4px);
+}
+
+.leistung-icon {
+  font-size: 42px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.leistung-box h3 {
+  color: #a65e3f;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.leistung-box p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+/* Fachgebiete */
+.fachgebiete-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.fachgebiet-number {
+  font-size: 2.5rem;
+  color: #d4c4b3;
+  margin-bottom: 15px;
+}
+
+.fachgebiet h3 {
+  font-size: 1.75rem;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.fachgebiet-desc {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.fachgebiet ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fachgebiet li {
+  color: #a65e3f;
+  margin-bottom: 6px;
+}
+
+.fachgebiet li:before {
+  content: "• ";
+  margin-right: 8px;
+}
+
+/* Referenzen */
+.referenzen-section {
+  background: #3a3956;
+  color: #ffffff;
+  padding: 80px 20px;
+}
+
+.referenzen-section .section-title {
+  color: #ffffff;
+}
+
+.referenzen-section .section-subtitle {
+  color: #b8b5c9;
+}
+
+.referenzen-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.referenz {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.referenz:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.referenzen-note {
+  text-align: center;
+  color: #b8b5c9;
+  font-style: italic;
+}
+
+/* Über mich */
+.about-section {
+  background: #fdfbf8;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-image {
+  background: #e8e3db;
+  border-radius: 8px;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.about-initials {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 5rem;
+  color: #d4c4b3;
+}
+
+.about-name {
+  color: #666;
+  margin-top: 20px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  color: #a65e3f;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Kontakt */
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+}
+
+.kontakt-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.kontakt-item {
+  display: flex;
+  gap: 15px;
+  align-items: start;
+}
+
+.kontakt-icon {
+  width: 40px;
+  height: 40px;
+  background: #fdfbf8;
+  border: 1px solid #e8e3db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #a65e3f;
+  flex-shrink: 0;
+}
+
+.kontakt-item h4 {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.kontakt-item p {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 968px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .leistungen-grid,
+  .fachgebiete-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .referenzen-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .about-grid,
+  .kontakt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<!-- HERO -->
+<div class="hero-section">
+  <div class="hero-divider"></div>
+  <h1 class="hero-title">
+    Präzise. Menschlich.<br>
+    <span class="hero-accent">Engagiert.</span>
+  </h1>
+  <p class="hero-subtitle">
+    Übersetzungen und Texte für Kultur, Politik und Technik – mit über 25 Jahren Erfahrung. Deutsch aus dem Französischen, Englischen, Niederländischen und Portugiesischen.
+  </p>
+  <div class="hero-buttons">
+    <a href="#kontakt" class="btn-primary">Kontakt aufnehmen</a>
+    <a href="#leistungen" class="btn-secondary">Leistungen entdecken</a>
+  </div>
+  <div class="scroll-indicator">
+    ENTDECKEN<br>↓
+  </div>
+</div>
+
+<!-- LEISTUNGEN -->
+<div class="section" id="leistungen">
+  <div class="section-divider"></div>
+  <h2 class="section-title">Leistungen</h2>
+  <p class="section-subtitle">Maßgeschneiderte Sprachdienstleistungen für anspruchsvolle Kunden aus Kultur, Politik und Wirtschaft.</p>
+  
+  <div class="leistungen-grid">
+    <div class="leistung-box">
+      <div class="leistung-icon">🔤</div>
+      <h3>Übersetzung</h3>
+      <p>Fachübersetzungen aus dem Französischen, Englischen, Niederländischen und Portugiesischen ins Deutsche. Präzise und kontextsensibel.</p>
+    </div>
+    
+    <div class="leistung-box">
+      <div class="leistung-icon">✨</div>
+      <h3>Transkreation</h3>
+      <p>Kreative Anpassung von Marketingtexten und Kampagnen für den deutschsprachigen Markt – mehr als bloße Übersetzung.</p>
+    </div>
+    
+    <div class="leistung-box">
+      <div class="leistung-icon">✍️</div>
+      <h3>Copywriting</h3>
+      <p>Professionelle deutsche Texte für Web, Print und Social Media. Von der Idee bis zum fertigen Text.</p>
+    </div>
+    
+    <div class="leistung-box">
+      <div class="leistung-icon">📝</div>
+      <h3>Lektorat</h3>
+      <p>Sorgfältige Überarbeitung und Korrektur Ihrer deutschen Texte für maximale sprachliche Qualität.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FACHGEBIETE -->
+<div class="section">
+  <div class="section-divider"></div>
+  <h2 class="section-title">Fachgebiete</h2>
+  <p class="section-subtitle">Spezialisierung auf Bereiche, in denen Sprache besonders zählt.</p>
+  
+  <div class="fachgebiete-grid">
+    <div class="fachgebiet">
+      <div class="fachgebiet-number">01</div>
+      <h3>Kultur</h3>
+      <p class="fachgebiet-desc">Museen, Galerien, Theater, Verlage und Kulturinstitutionen</p>
+      <ul>
+        <li>Ausstellungskataloge</li>
+        <li>Audioguides</li>
+        <li>Pressemitteilungen</li>
+      </ul>
+    </div>
+    
+    <div class="fachgebiet">
+      <div class="fachgebiet-number">02</div>
+      <h3>Politik & Institutionen</h3>
+      <p class="fachgebiet-desc">EU-Institutionen, NGOs, Gewerkschaften und öffentliche Einrichtungen</p>
+      <ul>
+        <li>Politische Kommunikation</li>
+        <li>Berichte</li>
+        <li>Strategiedokumente</li>
+      </ul>
+    </div>
+    
+    <div class="fachgebiet">
+      <div class="fachgebiet-number">03</div>
+      <h3>Technik</h3>
+      <p class="fachgebiet-desc">Technische Dokumentation für Industrie und Forschung</p>
+      <ul>
+        <li>Handbücher</li>
+        <li>Produktdokumentation</li>
+        <li>Normen</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- REFERENZEN -->
+<div class="referenzen-section">
+  <div class="section-divider"></div>
+  <h2 class="section-title">Referenzen</h2>
+  <p class="section-subtitle">Vertrauen von führenden Institutionen in Kultur und Politik.</p>
+  
+  <div class="referenzen-grid">
+    <div class="referenz">Europäische Kommission</div>
+    <div class="referenz">Europäisches Parlament</div>
+    <div class="referenz">Rat der Europäischen Union</div>
+    <div class="referenz">Europäischer Rechnungshof</div>
+    <div class="referenz">industriAll Europe</div>
+    <div class="referenz">Grand Curtius Lüttich</div>
+    <div class="referenz">Opéra Royal de Wallonie</div>
+    <div class="referenz">MuseumsQuartier Wien</div>
+    <div class="referenz">Tour de France (A.S.O.)</div>
+    <div class="referenz">Kunsthistorisches Museum Wien</div>
+    <div class="referenz">Centre Pompidou</div>
+    <div class="referenz">Friedrich-Ebert-Stiftung</div>
+  </div>
+  
+  <p class="referenzen-note">Und viele weitere Museen, NGOs, Agenturen und Unternehmen.</p>
+</div>
+
+<!-- ÜBER MICH -->
+<div class="section about-section" id="ueber-mich">
+  <div class="section-divider"></div>
+  <h2 class="section-title">Über mich</h2>
+  
+  <div class="about-grid">
+    <div class="about-image">
+      <div class="about-initials">NT</div>
+      <p class="about-name">Noe Tessmann</p>
+    </div>
+    
+    <div>
+      <p>Seit über 25 Jahren übersetze ich Texte ins Deutsche – mit Leidenschaft für Sprache und Präzision im Detail. Mein Schwerpunkt liegt auf Texten aus Kultur, Politik und Technik.</p>
+      
+      <p>Als Übersetzer für Französisch und Englisch arbeite ich für renommierte Institutionen wie die Europäische Kommission, führende Museen und internationale Organisationen.</p>
+      
+      <p>Mein Ansatz: Jeder Text verdient individuelle Aufmerksamkeit. Ich übersetze nicht nur Worte, sondern vermittle Bedeutung, Ton und kulturellen Kontext.</p>
+      
+      <div class="about-stats">
+        <div>
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Jahre Erfahrung</div>
+        </div>
+        <div>
+          <div class="stat-number">4</div>
+          <div class="stat-label">Sprachen</div>
+        </div>
+        <div>
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Auftraggeber</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KONTAKT -->
+<div class="section" id="kontakt">
+  <div class="section-divider"></div>
+  <h2 class="section-title">Kontakt</h2>
+  <p class="section-subtitle">Haben Sie ein Projekt? Ich freue mich auf Ihre Anfrage und antworte in der Regel innerhalb von 24 Stunden.</p>
+  
+  <div class="kontakt-grid">
+    <div class="kontakt-info">
+      <div class="kontakt-item">
+        <div class="kontakt-icon">✉️</div>
+        <div>
+          <h4>E-Mail</h4>
+          <p>architexte@gmail.com</p>
+        </div>
+      </div>
+      
+      <div class="kontakt-item">
+        <div class="kontakt-icon">📞</div>
+        <div>
+          <h4>Telefon</h4>
+          <p>+43 680 32 11 373</p>
+        </div>
+      </div>
+      
+      <div class="kontakt-item">
+        <div class="kontakt-icon">📍</div>
+        <div>
+          <h4>Standort</h4>
+          <p>Wien, Österreich</p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: #fdfbf8; padding: 30px; border-radius: 8px; border: 1px solid #e8e3db;">
+      <h3 style="margin-bottom: 20px;">Anfrage senden</h3>
+      <p style="color: #666; margin-bottom: 20px;">Schreiben Sie mir direkt eine E-Mail oder rufen Sie an. Ich melde mich zeitnah bei Ihnen zurück.</p>
+      <a href="mailto:architexte@gmail.com" class="btn-primary">E-Mail senden</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
